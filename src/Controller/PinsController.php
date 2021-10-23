@@ -51,7 +51,7 @@ class PinsController extends AbstractController
 
         $pin = new Pin;
 
-        $form = $this->createForm(PinType::class);
+        $form = $this->createForm(PinType::class,$pin);
 
         $form->handleRequest($req);
 
@@ -95,9 +95,14 @@ class PinsController extends AbstractController
      * @Route("/pins/{id<[0-9]+>}/delete",name="app_pins_delete",methods={"GET","POST"})
      */
     public function delete( Request $req,Pin $pin):Response{
-        //gestion delete page show
-        $this->em->remove($pin);
-        $this->em->flush();
+         // boeug sur l'annotation methods="DELETE" a revoir
+
+        //supprime si le token envoyer par l'utiisateur est valide 
+        if($this->isCsrfTokenValid('pin_deletion_'.$pin->getId(),$req->request->get('csrf_token'))){
+             $this->em->remove($pin);
+            $this->em->flush();
+        }
+       
 
         return $this->redirectToRoute('app_home');
  

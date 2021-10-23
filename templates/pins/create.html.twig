@@ -9,9 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-     {{form_start(form)}}
-        {{form_widget(form)}}
-        <input type="submit" value="Create Pin">
-     {{form_end(form)}}
+    {{ include('pins/_form.html.twig',{submitButtonText: 'Create'} )   }}
+      
 </div>
 {% endblock %}
