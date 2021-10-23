@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Pin;
+use App\Form\PinType;
 use App\Repository\PinRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,12 +47,11 @@ class PinsController extends AbstractController
      * @Route("/pins/{id<[0-9]+>}/edit",name="app_pins_edit",methods={"GET","POST"})
      */
     public function edit( Request $req,Pin $pin):Response{
-
-        $form = $this->createFormBuilder($pin)
-            ->add('title',TextType::class)
-            ->add('description',TextareaType::class)
-            ->getForm();
-            $form->handleRequest($req);
+        // prochaine etape changer le POST EN PUT 
+        $form = $this->createForm(PinType::class,$pin);
+        
+        
+        $form->handleRequest($req);
 
             if($form->isSubmitted() && $form->isValid()){
                  
@@ -72,21 +72,12 @@ class PinsController extends AbstractController
 
         $pin = new Pin;
 
-        $form = $this->createFormBuilder($pin)
-            ->add('title',TextType::class)
-            ->add('description',TextareaType::class)
-            ->getForm();
+        $form = $this->createForm(PinType::class);
 
         $form->handleRequest($req);
 
         if($form->isSubmitted() && $form->isValid()){
-            /**$data = $form->getData();
-                $pin = new Pin;
-                $pin->setTitle($data['title']);
-                $pin->setDescription($data['description']);
-            **/
-
-            // dd($pin)
+            
             $this->em->persist($pin);
             $this->em->flush();
 

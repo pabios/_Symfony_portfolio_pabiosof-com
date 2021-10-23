@@ -9,4 +9,6 @@ $em->persist($p1);
 $em->flush();
 dump($p1) // debug this
 
-## 
+## creation d'un type Formulaire
+symfony console make:form 
+-> Pin 
