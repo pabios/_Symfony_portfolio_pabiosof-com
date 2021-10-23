@@ -49,4 +49,6 @@ trait Timestampable{
         $this->setUpdatedAt(new \DateTime);
 
     }
+
+    
 }
