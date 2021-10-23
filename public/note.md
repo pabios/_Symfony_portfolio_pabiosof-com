@@ -13,3 +13,12 @@ dump($p1) // debug this
 symfony console make:form 
 -> Pin 
 
+## bundle
+affichage date il 20 jours 
+->composer require knplabs/knp-time-bundle
+Utilisation twing du filtre u
+->composer require twig/string-extra
+gestion des erreur 404 
+->composer require symfony/twig-pack
+
+
