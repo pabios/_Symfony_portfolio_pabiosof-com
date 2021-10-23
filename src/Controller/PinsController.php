@@ -43,28 +43,7 @@ class PinsController extends AbstractController
         return $this->render('pins/show.html.twig',['pin' => $pin]);
     } 
 
-     /**
-     * @Route("/pins/{id<[0-9]+>}/edit",name="app_pins_edit",methods={"GET","POST"})
-     */
-    public function edit( Request $req,Pin $pin):Response{
-        // prochaine etape changer le POST EN PUT 
-        $form = $this->createForm(PinType::class,$pin);
-        
-        
-        $form->handleRequest($req);
-
-            if($form->isSubmitted() && $form->isValid()){
-                 
-                $this->em->flush();
     
-                return $this->redirectToRoute('app_home');
-            }
-
-        return $this->render('pins/edit.html.twig',[
-            'pin' => $pin,
-            'form' => $form->createView()
-        ]);
-    }     
 
 
     #[Route('/pins/create', name: 'app_pins_create',methods:["GET","POST"])]
@@ -87,5 +66,40 @@ class PinsController extends AbstractController
         return $this->render('pins/create.html.twig',[
             'form' => $form->createView()
         ]);
+    }
+
+     /**
+     * @Route("/pins/{id<[0-9]+>}/edit",name="app_pins_edit",methods={"GET","POST"})
+     */
+    public function edit( Request $req,Pin $pin):Response{
+        // prochaine etape changer le POST EN PUT 
+        $form = $this->createForm(PinType::class,$pin);
+        
+        
+        $form->handleRequest($req);
+
+            if($form->isSubmitted() && $form->isValid()){
+                 
+                $this->em->flush();
+    
+                return $this->redirectToRoute('app_home');
+            }
+
+        return $this->render('pins/edit.html.twig',[
+            'pin' => $pin,
+            'form' => $form->createView()
+        ]);
+    } 
+    
+     /**
+     * @Route("/pins/{id<[0-9]+>}/delete",name="app_pins_delete",methods={"GET","POST"})
+     */
+    public function delete( Request $req,Pin $pin):Response{
+        //gestion delete page show
+        $this->em->remove($pin);
+        $this->em->flush();
+
+        return $this->redirectToRoute('app_home');
+ 
     }
 }
