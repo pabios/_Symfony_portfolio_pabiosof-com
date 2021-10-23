@@ -23,7 +23,7 @@ class PinsController extends AbstractController
     }
 
 
-    #[Route('/pins', name: 'app_home', methods:"GET")]
+    #[Route('/', name: 'app_home', methods:"GET")]
     public function index(PinRepository $pr): Response
     {
 
