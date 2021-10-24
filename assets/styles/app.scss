@@ -26,3 +26,19 @@ html,body{
     }
 }
 
+.vich-image {
+    .form-check-input{
+        margin-top: 10px;
+    }
+
+    img{
+        @extend .mb-2;
+        @extend .rounded;
+        @extend .shadow;
+        @extend .img-thumbnail;
+    
+    }
+   
+}
+
+
