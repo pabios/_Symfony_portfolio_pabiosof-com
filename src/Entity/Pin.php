@@ -41,6 +41,11 @@ class Pin
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $ImageName;
+
     
 
     public function getId(): ?int
@@ -68,6 +73,18 @@ class Pin
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->ImageName;
+    }
+
+    public function setImageName(?string $ImageName): self
+    {
+        $this->ImageName = $ImageName;
 
         return $this;
     }
