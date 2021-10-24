@@ -29,3 +29,7 @@ yarn-error.log
 ###> Ismael custum ###
 /public/uploads/
 ###< phpunit/phpunit ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

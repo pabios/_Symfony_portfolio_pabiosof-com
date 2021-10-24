@@ -20,5 +20,11 @@ Utilisation twing du filtre u
 ->composer require twig/string-extra
 gestion des erreur 404 
 ->composer require symfony/twig-pack
+importation d'image 
+-> composer require vich/uploader-bundle
+-> clear le cache apres
+Affichage des image
+->composer require liip/imagine-bundle
+
 
 
