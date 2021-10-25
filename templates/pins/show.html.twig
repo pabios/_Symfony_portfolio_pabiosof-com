@@ -4,7 +4,33 @@
 {% block title pin.title %}  
 
 {% block body %}
+
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic"> {{ pin.title }}</h1>
+      <p class="lead my-3"> {{ pin.description|u.truncate(50, '...', false) }}</p>
+    </div>
+  </div>
  
+<div class="container">
+    <div class=" mb-5 row">
+       <div class="col-md-4">
+          <article class="pin bg-white rounded shadow"  >
+             <div class="mw-100 overflow-hidden">
+                <a href="{{ path('app_pins_show',{id: pin.id}) }}">
+                   <img class="w-100 rounded-top" src="{{ vich_uploader_asset(pin) | imagine_filter('squared_thumbnail_medium')}}" alt="{{ pin.title }}">
+                </a>
+             </div>
+             
+             <a class=" h5 pt-4 text-primary text-muted text-decoration-none" href="{{ path('app_pins_show',{id: pin.id}) }}"> <h2>{{ pin.title }}</h2> </a>
+             <p>{{ pin.description|u.truncate(10, '...', false) }}</p>
+             <p>Publié il y'a {{ pin.createdAt|ago }}</p>
+          </article>
+       </div>
+    </div>
+     
+ </div>
 
 
 <article>
