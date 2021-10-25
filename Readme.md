@@ -1,2 +1,3 @@
-## ce projet  de blog évolue avec mon niveau sur Symfony/
-1. pabiosoft.com le resultat
+## le Depot de Mon portfolio 
+### premiere publication 
+1.   le resultat visible sur [http://pabiosoft.com](pabiosoft.com) A partir du jeudi 28 octobre 2021
