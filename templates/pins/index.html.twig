@@ -15,13 +15,14 @@
             <article class="pin bg-white rounded shadow"  >
                <div class="mw-100 overflow-hidden">
                   <a   href="{{ path('app_pins_show',{id: pin.id}) }}">
-                     <img class="w-100 rounded-top" src="{{ vich_uploader_asset(pin) | imagine_filter('squared_thumbnail_medium')}}" alt="{{ pin.title }}">
+                     <img class="w-100 rounded-top" src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('images/profils.jpeg') )  | imagine_filter('squared_thumbnail_medium')}}" alt="{{ pin.title }}">
+                     
                   </a>
                </div>
                
                <a class=" h5 pt-4 text-primary text-muted text-decoration-none" href="{{ path('app_pins_show',{id: pin.id}) }}"> <h2>{{ pin.title }}</h2> </a>
                <p>{{ pin.description|u.truncate(10, '...', false) }}</p>
-               <p>Publié il y'a {{ pin.createdAt|ago }}</p>
+               <p>Publié Par {{ pin.user.fullName }}  le {{ pin.createdAt|date("d/m/Y")  }}  </p>
             </article>
          </div>
          {% endfor %}

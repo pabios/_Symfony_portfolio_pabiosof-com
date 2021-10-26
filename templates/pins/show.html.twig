@@ -9,14 +9,19 @@
     
     <div class="col-md-6 px-0">
       <h1 class="display-4 font-italic"> {{ pin.title }}</h1>
-      <p class="lead my-3"> {{ pin.description|u.truncate(50, '...', false) }}</p>
+      <p class="lead my-3">Publié Par {{ pin.user.fullName }} le {{ pin.createdAt|date("d/m/Y")  }}  </p>
+
     </div>
   </div>
 
 <div class="container mt-4">
    <div class="row">
-      <div class="col-2 ">
-         <img class="w-100 rounded-top" src="{{ vich_uploader_asset(pin) | imagine_filter('squared_thumbnail_medium')}}" alt="{{ pin.title }}">
+      <div class="col-2 "> 
+          
+         <img class="w-100 rounded-top" src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('images/profils.jpeg') )  | imagine_filter('squared_thumbnail_medium')}}" alt="{{ pin.title }}">
+         
+         
+         
       </div>
       <div class="col">
        <p>{{ pin.description }}</p>

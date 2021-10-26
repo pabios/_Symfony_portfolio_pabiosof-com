@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $lastName; 
-
+     
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
@@ -208,5 +208,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+    
+    public function getFullName(): ?string
+    {
+        return $this->getFirstName().' '.$this->getLastName();
     }
 }
