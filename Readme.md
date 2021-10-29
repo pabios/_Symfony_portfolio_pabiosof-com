@@ -1,3 +1,3 @@
 ## le Depot de Mon portfolio 
-### Date de  Publication 
-1.   le resultat visible sur [http://pabiosoft.com](pabiosoft.com) A partir du jeudi 28 octobre 2021
+### nouvelle verssion de mon portfolio  [http://pabiosoft.com](pabiosoft.com)
+1.   en developpement
